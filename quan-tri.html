@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Trang quản trị tài khoản và kết quả đánh giá các ấp xã Tân An." />
+    <title>Quản trị | Đánh giá công tác Hội Tân An</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=18" />
+  </head>
+  <body data-page="admin">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="quan-tri.html" aria-label="Trang quản trị Tân An">
+          <span class="brand-logos" aria-hidden="true"><img src="images/logodoanthanhnien.png" alt="" /><img src="images/logothanhnien.png" alt="" /></span>
+          <span class="brand-copy"><strong>XÃ TÂN AN</strong><small>Trang quản trị</small></span>
+        </a>
+        <nav class="side-nav" aria-label="Điều hướng chính">
+          <a class="nav-link active" href="quan-tri.html" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><span>Quản trị</span></a>
+          <a class="nav-link" href="quan-ly-tai-khoan.html"><span class="nav-icon" aria-hidden="true">♙</span><span>Quản lý tài khoản</span></a>
+        </nav>
+        <div class="sidebar-note"><span class="online-dot"></span><span id="api-status-text">Đang kết nối cơ sở dữ liệu</span></div>
+        <div class="sidebar-footer"><br />Xã Tân An</div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="icon-button menu-button" id="menu-toggle" aria-label="Mở hoặc đóng menu"><span></span><span></span><span></span></button>
+          <div class="topbar-title">BỘ TIÊU CHÍ CÔNG TÁC ĐOÀN - HỘI XÃ TÂN AN</div>
+          <div class="topbar-actions">
+            <span class="account-chip" id="account-chip"></span>
+            <button class="icon-button refresh-button" id="refresh-button" aria-label="Tải lại dữ liệu">↻</button>
+            <span class="avatar" aria-label="Đơn vị xã Tân An">TA</span>
+            <button class="button button-outline logout-button" id="logout-button" type="button">Đăng xuất</button>
+          </div>
+        </header>
+
+        <section class="page-heading">
+          <div><div class="eyebrow">XÃ TÂN AN · QUẢN TRỊ VIÊN</div><h1>Trang quản trị</h1><p>Theo dõi tiến độ đánh giá của các ấp trong toàn xã.</p></div>
+        </section>
+
+        <section class="page-content">
+          <div class="summary-grid">
+            <article class="summary-card score-card">
+              <div class="summary-top"><span class="summary-label" id="score-scope-label">ĐIỂM TRUNG BÌNH 13 ẤP</span><span class="card-icon score-icon" aria-hidden="true">✦</span></div>
+              <div class="score-line"><strong id="dashboard-score">0</strong><span>/ 100 điểm</span></div>
+              <div class="progress-track"><span id="score-progress" style="width: 0%"></span></div>
+              <div class="summary-foot"><span class="status-dot"></span> Theo hướng dẫn đánh giá công tác Hội</div>
+            </article>
+            <article class="summary-card">
+              <div class="summary-top"><span class="summary-label">ẤP ĐÃ CẬP NHẬT ĐIỂM</span><span class="card-icon criteria-icon" aria-hidden="true">✓</span></div>
+              <div class="metric-line"><strong id="hamlets-scored">0</strong><span>/ <span id="hamlets-total">13</span> ấp</span></div>
+              <p class="metric-caption">Còn <b id="hamlets-pending">13 ấp</b> chưa có điểm</p>
+              <a href="#hamlet-grid" class="text-link">Xem tiến độ từng ấp <span>↓</span></a>
+            </article>
+            <article class="summary-card">
+              <div class="summary-top"><span class="summary-label">NỘI DUNG ĐÃ CẬP NHẬT</span><span class="card-icon evidence-icon" aria-hidden="true">▧</span></div>
+              <div class="metric-line"><strong id="completed-count">0</strong><span>/ <span id="completed-total">130</span> nội dung</span></div>
+              <p class="metric-caption">Số nội dung đã nhập minh chứng trên <span id="hamlet-count-summary">13</span> ấp</p>
+              <a href="quan-ly-tai-khoan.html" class="text-link">Quản lý tài khoản <span>→</span></a>
+            </article>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel progress-panel" id="progress-panel">
+              <div class="panel-heading"><div><h2>Tiến độ nhập minh chứng</h2><p>Đã nhập kết quả trên tổng <span id="total-items-copy">130</span> nội dung</p></div><span class="progress-percent" id="completion-percent">0%</span></div>
+              <div class="large-progress"><span id="completion-bar" style="width: 0%"></span></div>
+              <div class="progress-legend"><span><i class="legend-complete"></i> Đã nhập <b id="legend-complete-count">0</b></span><span><i class="legend-pending"></i> Chưa nhập <b id="legend-total-items">130</b></span></div>
+            </section>
+            <section class="panel unit-panel">
+              <div class="panel-heading"><div><h2>Phạm vi quản lý</h2><p>Các ấp trực thuộc xã Tân An</p></div><span class="unit-icon" aria-hidden="true">⌂</span></div>
+              <div class="unit-profile"><div class="unit-avatar">TA</div><div><strong>13 ấp</strong><span>Ủy ban Hội xã Tân An</span></div></div>
+              <div class="unit-details"><div><span>Số nội dung mỗi ấp</span><b>10 nội dung</b></div><div><span>Tổng số phiếu</span><b>13 phiếu chấm điểm</b></div><div><span>Cập nhật gần nhất</span><b id="last-updated">Chưa lưu</b></div></div>
+            </section>
+          </div>
+
+          <section class="panel recent-panel">
+            <div class="panel-heading recent-heading"><div><h2>Tiến độ 13 ấp</h2><p>Mở trang chi tiết của từng ấp để kiểm tra minh chứng và xác nhận điểm</p></div><span class="hamlet-count">13 ấp</span></div>
+            <div class="hamlet-grid" id="hamlet-grid"></div>
+          </section>
+        </section>
+        <footer class="page-footer">Ủy ban Hội xã Tân An <span>•</span> Khu vực quản trị</footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js?v=13"></script>
+  </body>
+</html>

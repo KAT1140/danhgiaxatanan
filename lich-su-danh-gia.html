@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Xem điểm tự đánh giá, điểm xã đánh giá và minh chứng của từng lần đánh giá." />
+    <title>Lịch sử đánh giá | Đánh giá công tác Hội Tân An</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=18" />
+  </head>
+  <body data-page="history">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="tong-quan.html" aria-label="Trang chủ Tân An">
+          <span class="brand-logos" aria-hidden="true"><img src="images/logodoanthanhnien.png" alt="" /><img src="images/logothanhnien.png" alt="" /></span>
+          <span class="brand-copy"><strong>Xã Tân An</strong><small>Đánh giá công tác Hội</small></span>
+        </a>
+        <nav class="side-nav" aria-label="Điều hướng chính">
+          <a class="nav-link" href="tong-quan.html"><span class="nav-icon" aria-hidden="true">⌂</span><span>Tổng quan</span></a>
+          <a class="nav-link" href="tu-danh-gia.html"><span class="nav-icon" aria-hidden="true">▤</span><span>Tự đánh giá</span></a>
+          <a class="nav-link active" href="lich-su-danh-gia.html" aria-current="page"><span class="nav-icon" aria-hidden="true">◷</span><span>Lịch sử đánh giá</span></a>
+        </nav>
+        <div class="sidebar-note"><span class="online-dot"></span><span id="api-status-text">Đang kết nối cơ sở dữ liệu</span></div>
+        <div class="sidebar-footer">Hội Liên hiệp Thanh niên Việt Nam<br />Xã Tân An</div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="icon-button menu-button" id="menu-toggle" aria-label="Mở hoặc đóng menu"><span></span><span></span><span></span></button>
+          <div class="topbar-title">BỘ TIÊU CHÍ CÔNG TÁC ĐOÀN - HỘI XÃ TÂN AN</div>
+          <div class="topbar-actions">
+            <span class="account-chip" id="account-chip"></span>
+            <button class="icon-button refresh-button" id="refresh-button" aria-label="Tải lại dữ liệu">↻</button>
+            <span class="avatar" aria-label="Đơn vị xã Tân An">TA</span>
+            <button class="button button-outline logout-button" id="logout-button" type="button">Đăng xuất</button>
+          </div>
+        </header>
+
+        <section class="page-heading">
+          <div><div class="eyebrow">XÃ TÂN AN</div><h1>Lịch sử đánh giá</h1><p>Xem lại điểm và minh chứng đã lưu, kèm trạng thái xác nhận của xã.</p></div>
+          <a class="button button-outline" href="tu-danh-gia.html">Về tự đánh giá</a>
+        </section>
+
+        <section class="page-content history-page-content">
+          <p class="history-note">Mỗi lần lưu điểm sẽ tạo một bản ghi riêng. Mở từng lần để xem chi tiết; “Sửa điểm” mở phiếu hiện tại, còn “Xóa” chỉ xóa bản ghi lịch sử đó.</p>
+          <section id="assessment-history-list" class="assessment-history-list" aria-label="Các lần đánh giá đã lưu"></section>
+        </section>
+        <footer class="page-footer">Ủy ban Hội xã Tân An <span>•</span> Lịch sử đánh giá</footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js?v=13"></script>
+  </body>
+</html>

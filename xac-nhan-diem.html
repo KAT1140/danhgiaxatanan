@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Xem và xác nhận kết quả tự đánh giá của từng ấp." />
+    <title>Xác nhận điểm | Đánh giá công tác Hội Tân An</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=18" />
+  </head>
+  <body data-page="approval">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="quan-tri.html" aria-label="Trang quản trị Tân An">
+          <span class="brand-logos" aria-hidden="true"><img src="images/logodoanthanhnien.png" alt="" /><img src="images/logothanhnien.png" alt="" /></span>
+          <span class="brand-copy"><strong>Xã Tân An</strong><small>Trang quản trị</small></span>
+        </a>
+        <nav class="side-nav" aria-label="Điều hướng chính">
+          <a class="nav-link active" href="quan-tri.html"><span class="nav-icon" aria-hidden="true">⌂</span><span>Quản trị</span></a>
+          <a class="nav-link" href="quan-ly-tai-khoan.html"><span class="nav-icon" aria-hidden="true">♙</span><span>Quản lý tài khoản</span></a>
+        </nav>
+        <div class="sidebar-note"><span class="online-dot"></span><span id="api-status-text">Đang kết nối cơ sở dữ liệu</span></div>
+        <div class="sidebar-footer">Hội Liên hiệp Thanh niên Việt Nam<br />Xã Tân An</div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="icon-button menu-button" id="menu-toggle" aria-label="Mở hoặc đóng menu"><span></span><span></span><span></span></button>
+          <div class="topbar-title">BỘ TIÊU CHÍ CÔNG TÁC ĐOÀN - HỘI XÃ TÂN AN</div>
+          <div class="topbar-actions">
+            <span class="account-chip" id="account-chip"></span>
+            <button class="icon-button refresh-button" id="refresh-button" aria-label="Tải lại dữ liệu">↻</button>
+            <span class="avatar" aria-label="Đơn vị xã Tân An">TA</span>
+            <button class="button button-outline logout-button" id="logout-button" type="button">Đăng xuất</button>
+          </div>
+        </header>
+
+        <section class="page-heading approval-page-heading">
+          <div>
+            <div class="eyebrow"><a href="quan-tri.html">QUẢN TRỊ</a> · DUYỆT KẾT QUẢ</div>
+            <h1>Đánh giá phong trào công tác Đoàn - Hội</h1>
+            <p><strong id="approval-hamlet-name">Ấp</strong> · <span id="approval-heading-copy">Kiểm tra điểm số và minh chứng trước khi xác nhận.</span></p>
+            <p class="approval-page-status" id="approval-page-status" role="status"></p>
+          </div>
+          <a class="button button-outline" href="quan-tri.html">← Quay lại quản trị</a>
+        </section>
+
+        <section class="page-content approval-page-content">
+          <section class="panel approval-summary">
+            <div>
+              <span class="summary-label">TỔNG ĐIỂM TỰ ĐÁNH GIÁ</span>
+              <div class="score-line"><strong id="approval-total-score">0</strong><span>/ 100 điểm</span></div>
+            </div>
+            <div>
+              <span class="summary-label">TỔNG ĐIỂM XÃ ĐÁNH GIÁ</span>
+              <div class="score-line"><strong id="approval-commune-total-score">—</strong><span>/ 100 điểm</span></div>
+            </div>
+            <div class="approval-summary-details">
+              <strong id="approval-completed-count">0/10 nội dung có minh chứng</strong>
+              <span id="approval-saved-at">Chưa lưu điểm</span>
+              <span>Điểm xã mặc định bằng điểm ấp tự chấm; chỉ sửa tiêu chí có điểm xã khác.</span>
+            </div>
+            <button class="button button-primary" id="approval-action" type="button" disabled>Xác nhận điểm của ấp</button>
+          </section>
+
+          <section class="approval-review-list" id="approval-review-list" aria-label="Điểm và minh chứng từng nội dung"></section>
+        </section>
+        <footer class="page-footer">Ủy ban Hội xã Tân An <span>•</span> Khu vực quản trị</footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js?v=13"></script>
+  </body>
+</html>
